@@ -1,21 +1,23 @@
 public class Main {
     public static void main(String[] args) {
-        Vertex<String> a = new Vertex<>("A");
-        Vertex<String> b = new Vertex<>("B");
-        Vertex<String> c = new Vertex<>("C");
-        Vertex<String> d = new Vertex<>("D");
+        Vertex<String> aidos = new Vertex<>("Aidos");
+        Vertex<String> bolat = new Vertex<>("Bolat");
+        Vertex<String> dana = new Vertex<>("Dana");
+        Vertex<String> erlan = new Vertex<>("Erlan");
+        Vertex<String> farida = new Vertex<>("Farida");
 
         WeightedGraph<String> graph = new WeightedGraph<>();
-        graph.addEdge(a, b, 1);
-        graph.addEdge(a, c, 4);
-        graph.addEdge(b, c, 2);
-        graph.addEdge(c, d, 1);
+        graph.addEdge(aidos, bolat, 3);
+        graph.addEdge(aidos, dana, 2);
+        graph.addEdge(bolat, erlan, 4);
+        graph.addEdge(dana, erlan, 1);
+        graph.addEdge(erlan, farida, 5);
 
-        BreadthFirstSearch<String> bfs = new BreadthFirstSearch<>(a);
-        System.out.println("BFS Path A to D: " + bfs.pathTo(d));
+        BreadthFirstSearch<String> bfs = new BreadthFirstSearch<>(aidos);
+        System.out.println("BFS Path Aidos to Farida: " + bfs.pathTo(farida));
 
-        DijkstraSearch<String> dijkstra = new DijkstraSearch<>(a);
-        System.out.println("Dijkstra Path A to D: " + dijkstra.pathTo(d));
-        System.out.println("Distance: " + dijkstra.distanceTo(d));
+        DijkstraSearch<String> dijkstra = new DijkstraSearch<>(aidos);
+        System.out.println("Dijkstra Path Aidos to Farida: " + dijkstra.pathTo(farida));
+        System.out.println("Distance: " + dijkstra.distanceTo(farida));
     }
 }
